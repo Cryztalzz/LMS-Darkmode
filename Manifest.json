@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Dark Mode LMS Sanata Dharma by 27xAlz",
+    "description": "Cihuy bat gak sih kalo ada dark mode di LMS, biar gak sakit tuh mata kalo buka LMS malem-malem, masih ada bug dikit lah ya maklumkan \n-Alztod & Pam was here",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches":["https://belajar.usd.ac.id/*"],
+            "js": ["Content.js"]
+        }
+    ]
+}
