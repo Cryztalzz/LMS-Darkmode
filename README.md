@@ -4,6 +4,7 @@
 
 # How To Use this Dark Mode (Before Published to Chrome Extension)
 - Download both of the codes
-- Go to <a href="chrome://extensions/" target="blank"> or
+- Go to
+<a href="chrome://extensions/" target="blank">
 - Or go to extension manager on top right near your profile
-- <img src="https://pbs.twimg.com/media/GnlUPpcboAAq4Op?format=jpg&name=4096x4096" width="1100">
+<img src="https://pbs.twimg.com/media/GnlUPpcboAAq4Op?format=jpg&name=4096x4096" width="1100">
