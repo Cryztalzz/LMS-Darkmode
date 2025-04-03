@@ -1,2 +1,2 @@
 # LMS-Darkmode
-<img src="https://photos.app.goo.gl/WNS6UAW5SFDtFu6J7" width="1100">
+<img src="https://pbs.twimg.com/media/GnlRYdlawAA5_8a?format=jpg&name=large" width="1100">
