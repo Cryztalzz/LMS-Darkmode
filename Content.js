@@ -294,58 +294,87 @@ function disableDarkMode() {
 
 let isDarkMode = false;
 
-const toggleButton = document.createElement('button');
-toggleButton.innerHTML = '🌙';
-toggleButton.style.padding = '8px';
-toggleButton.style.marginLeft = '10px';
-toggleButton.style.marginRight = '10px';
-toggleButton.style.borderRadius = '50%';
-toggleButton.style.cursor = 'pointer';
-toggleButton.style.width = '35px';
-toggleButton.style.height = '35px';
-toggleButton.style.display = 'flex';
-toggleButton.style.alignItems = 'center';
-toggleButton.style.justifyContent = 'center';
-toggleButton.style.transition = 'all 0.3s ease';
-toggleButton.style.backgroundColor = '#ffffff';
-toggleButton.style.border = '2px solid #333333';
-toggleButton.style.boxShadow = '0 0 5px rgba(0,0,0,0.2)';
+const toggleButton = document.createElement('div');
+toggleButton.className = 'toggle-switch';
+toggleButton.innerHTML = `
+    <input type="checkbox" id="darkModeToggle">
+    <label for="darkModeToggle">
+        <span class="toggle-track">
+            <span class="toggle-icon">🌙</span>
+        </span>
+    </label>
+`;
 
-toggleButton.addEventListener('click', () => {
-    if (isDarkMode) {
-        disableDarkMode();
-        toggleButton.innerHTML = '🌙';
-        toggleButton.style.backgroundColor = '#ffffff';
-        toggleButton.style.border = '2px solid #333333';
-        toggleButton.style.boxShadow = '0 0 5px rgba(0,0,0,0.2)';
-    } else {
+// Tambahkan style untuk toggle switch
+const style = document.createElement('style');
+style.textContent = `
+    .toggle-switch {
+        position: relative;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .toggle-track {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 50px;
+        height: 24px;
+        background-color: #ffffff;
+        border: 2px solid #333333;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0 2px;
+    }
+
+    .toggle-icon {
+        font-size: 14px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        background-color: #333333;
+        border-radius: 50%;
+        color: #ffffff;
+    }
+
+    input:checked + label .toggle-track {
+        background-color: #333333;
+        border-color: #ffffff;
+    }
+
+    input:checked + label .toggle-icon {
+        transform: translateX(26px);
+        background-color: #ffffff;
+        color: #333333;
+    }
+
+    .toggle-switch:hover .toggle-track {
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+`;
+document.head.appendChild(style);
+
+const checkbox = toggleButton.querySelector('input');
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
         enableDarkMode();
-        toggleButton.innerHTML = '☀️';
-        toggleButton.style.backgroundColor = '#333333';
-        toggleButton.style.border = '2px solid #ffffff';
-        toggleButton.style.boxShadow = '0 0 5px rgba(255,255,255,0.2)';
-    }
-    isDarkMode = !isDarkMode;
-});
-
-toggleButton.addEventListener('mouseover', () => {
-    if (isDarkMode) {
-        toggleButton.style.backgroundColor = '#444444';
-        toggleButton.style.border = '2px solid #ffffff';
+        toggleButton.querySelector('.toggle-icon').textContent = '☀️';
     } else {
-        toggleButton.style.backgroundColor = '#f0f0f0';
-        toggleButton.style.border = '2px solid #000000';
+        disableDarkMode();
+        toggleButton.querySelector('.toggle-icon').textContent = '🌙';
     }
-});
-
-toggleButton.addEventListener('mouseout', () => {
-    if (isDarkMode) {
-        toggleButton.style.backgroundColor = '#333333';
-        toggleButton.style.border = '2px solid #ffffff';
-    } else {
-        toggleButton.style.backgroundColor = '#ffffff';
-        toggleButton.style.border = '2px solid #333333';
-    }
+    isDarkMode = checkbox.checked;
 });
 
 const navbar = document.querySelector('.navbar');
