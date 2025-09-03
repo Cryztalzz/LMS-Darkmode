@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Dark Mode LMS Sanata Dharma by 27xAlz",
+    "name": "Dark Mode LMS Sanata Dharma",
     "description": "Unofficial Dark Mode untuk LMS website belajar Universitas Sanata Dharma by 27xAlz",
     "version": "1.0",
     "content_scripts": [
