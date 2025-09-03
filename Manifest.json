@@ -5,8 +5,16 @@
     "version": "1.0",
     "content_scripts": [
         {
-            "matches":["https://belajar.usd.ac.id/*"],
-            "js": ["Content.js"]
+            "matches": ["https://belajar.usd.ac.id/*"],
+            "js": ["Content.js"],
+            "css": ["dark-mode.css"],
+            "run_at": "document_start"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["dark-mode.css"],
+            "matches": ["https://belajar.usd.ac.id/*"]
         }
     ]
 }

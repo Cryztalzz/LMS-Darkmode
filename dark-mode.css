@@ -1,0 +1,240 @@
+/* Dark Mode CSS - Optimized */
+
+/* Base elements */
+html, body, * {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+/* Containers and cards */
+.container, .card, .panel, .well, .block, .content-wrapper, 
+.main-content, .content-area, article, .custom-element, .widget, .module {
+    background-color: #1e1e1e !important;
+    border-color: #333333 !important;
+}
+
+/* Headers and navigation */
+header, nav, .navbar, .card-header, .page-header {
+    background-color: #1e1e1e !important;
+    border-color: #333333 !important;
+}
+
+/* Links */
+a {
+    color: #4da6ff !important;
+}
+
+/* Form elements */
+input, textarea, select {
+    background-color: #2d2d2d !important;
+    color: #e0e0e0 !important;
+    border-color: #404040 !important;
+}
+
+/* Buttons */
+button, .btn {
+    background-color: #333333 !important;
+    color: #e0e0e0 !important;
+    border-color: #404040 !important;
+}
+
+/* Tables */
+table, th, td {
+    background-color: #1e1e1e !important;
+    border-color: #333333 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Special navbar */
+.navbar, .navbar-light, .fixed-top, .navbar-expand, .moodle-has-zindex {
+    background-color: #0a0f1a !important;
+    color: #ffffff !important;
+    border-color: #1a2333 !important;
+}
+
+/* Course content */
+.course-content, .section, .section-header, .section-title, .course-section {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+/* Sidebar menu */
+.metismenu, .metismenu ul, .metismenu li, .metismenu .list-group-item, .metismenu .collapse,
+.topics .section, .section.main, .course-content .section,
+.sidebar, aside {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #2d2d2d !important;
+}
+
+/* Breadcrumb */
+.breadcrumb, .breadcrumb-item {
+    background-color: #0a0f1a !important;
+    color: #ffffff !important;
+}
+
+/* Progress bars - all variations */
+.progress, .progress-bar, .bar, .bg-white, 
+.progress-wrapper, .progress-container, .completion-progress,
+.progress-bar-container, .progress-track, .progress-line,
+.progress-indicator, .completion-indicator, .progress-separator,
+.progress-bar-wrapper, .progress-box, .progress-section,
+.progress-area, .progress-block, .progress-item,
+.progress-element, .progress-component, .progress-display,
+.progress-show, .progress-view, .progress-panel,
+.progress-card, .progress-widget, .progress-module,
+.progress-unit, .progress-part, .progress-portion,
+.progress-segment, .progress-division, .progress-fraction,
+.progress-ratio, .progress-percentage,
+.progress-completion-wrapper, .progress-completion-container,
+.progress-completion-box, .progress-completion-section,
+.progress-completion-area, .progress-completion-block,
+.progress-completion-item, .progress-completion-element,
+.progress-completion-component, .progress-completion-display,
+.progress-completion-show, .progress-completion-view,
+.progress-completion-panel, .progress-completion-card,
+.progress-completion-widget, .progress-completion-module,
+.progress-completion-unit, .progress-completion-part,
+.progress-completion-portion, .progress-completion-segment,
+.progress-completion-division, .progress-completion-fraction,
+.progress-completion-ratio, .progress-completion-percentage,
+.completion-progress, .completion-indicator, .completion-status,
+.progress-completion, .completion-bar, .completion-track {
+    background-color: #333333 !important;
+    border-color: #404040 !important;
+}
+
+/* Progress bar fill */
+.progress-bar-fill, .progress-fill, .progress-completed,
+.progress-bar .bar, .progress .bar, .bar .bar,
+.progress-fill-bar, .progress-completed-bar, .progress-done-bar,
+.progress-achieved-bar, .progress-accomplished-bar, .progress-finished-bar,
+.progress-bar-fill-bar, .progress-bar-completed-bar, .progress-bar-done-bar,
+.progress-bar-achieved-bar, .progress-bar-accomplished-bar, .progress-bar-finished-bar {
+    background-color: #4da6ff !important;
+    border-color: #4da6ff !important;
+}
+
+/* Dropdown and list */
+.dropdown-menu, .list-group-item {
+    background-color: #1e1e1e !important;
+    border-color: #333333 !important;
+}
+
+/* Footer */
+footer, #page-footer {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+/* Popup and modal */
+.popover-region-container, .popover, .popover-body, .popover-region-header-container, 
+.content-item-container, .modal-content, .modal-header, .modal-body, .modal-footer,
+.popover-header, .popover-region-header-text, .popover-region-header-container,
+.popover-region-footer-container, .view-overview, .popover-region-footer-container a {
+    background-color: #000000 !important;
+    border-color: #333333 !important;
+    color: #ffffff !important;
+}
+
+/* Notifications and messages */
+.notification-message, .message, .notification, .notification-message-content,
+.message-drawer, .message-app, .view-conversation, .view-overview,
+.message-drawer .list-group-item, .conversation-list-item {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+/* Navigation items */
+.nav-item, .nav-link, .dropdown-item {
+    background-color: #0a0f1a !important;
+    color: #ffffff !important;
+}
+
+/* Course topics text */
+.text, .topics, .sectionname, .accesshide, [data-key="mycourses"], 
+.has-arrow, .metismenu li a span, .topics h2, .topics h3, 
+.section .content .sectionname {
+    color: #ffffff !important;
+}
+
+/* Hover effects */
+.metismenu .list-group-item a:hover, .topics .section a:hover {
+    background-color: #2d2d2d !important;
+}
+
+/* Message drawer specific */
+.message-drawer textarea, .message-drawer input {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+.message-drawer .header-container, .message-drawer .footer-container {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+/* Breadcrumb links */
+.breadcrumb-item a, .breadcrumb-item.active, .breadcrumb {
+    background-color: transparent !important;
+    color: #ffffff !important;
+}
+
+/* Notification links and meta */
+.notification a, .popover-region-container a {
+    color: #ffffff !important;
+}
+
+.notification-message-meta, .timestamp,
+.message-drawer .time, .message-drawer .meta, .message-drawer .last-message {
+    color: #999999 !important;
+}
+
+/* Separators and borders */
+hr, .divider, .separator, .border, .border-top, .border-bottom, .border-left, .border-right {
+    border-color: #333333 !important;
+    background-color: #333333 !important;
+}
+
+/* Background overrides - all variations */
+.bg-white, .bg-light, .bg-default, .bg-standard, .bg-normal,
+.card-footer.bg-white, .dashboard-card-footer.bg-white,
+.progress.bg-white, .progress-bar.bg-white, .bar.bg-white,
+.container.bg-white, .card.bg-white, .panel.bg-white,
+.well.bg-white, .block.bg-white, .content-wrapper.bg-white,
+.main-content.bg-white, .content-area.bg-white, article.bg-white,
+[class*="bg-white"], [class*="bg-light"], [class*="bg-default"], [class*="bg-standard"],
+*[class*="bg-white"] {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+/* Progress with bg-white override */
+.progress.bg-white, .progress-bar.bg-white, .bar.bg-white,
+.progress.bg-white .progress-bar, .progress.bg-white .bar {
+    background-color: #333333 !important;
+    border-color: #404040 !important;
+}
+
+/* Text color overrides */
+.text-default, .text-muted, .text-secondary {
+    color: #e0e0e0 !important;
+}
+
+/* Universal selectors for progress and completion */
+[class*="progress"], [class*="completion"], [class*="bar"],
+[class*="white"], [class*="light"], [class*="default"] {
+    background-color: #333333 !important;
+    border-color: #404040 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Inline style overrides */
+[style*="background-color: white"], [style*="background-color: #fff"], [style*="background-color: #ffffff"],
+[style*="background: white"], [style*="background: #fff"], [style*="background: #ffffff"] {
+    background-color: #333333 !important;
+}
