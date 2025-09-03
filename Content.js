@@ -1,5 +1,5 @@
 function enableDarkMode() {
-    document.body.style.backgroundColor = '#121212';
+    document.body.style.backgroundColor = '#1e1e1e';
     document.body.style.color = '#e0e0e0';
 
     const elements = document.getElementsByTagName('*');
@@ -49,12 +49,46 @@ function enableDarkMode() {
         button.style.borderColor = '#404040';
     });
 
-    const progressBars = document.querySelectorAll('.progress, .progress-bar, .bar, .bg-white');
+    const progressBars = document.querySelectorAll('.progress, .progress-bar, .bar, .bg-white, .progress-wrapper, .progress-container, .completion-progress, .progress-bar-container, .progress-track, .progress-line, .progress-indicator, .completion-indicator, .progress-separator');
     progressBars.forEach(progress => {
         progress.style.backgroundColor = '#333333';
         progress.classList.remove('bg-white');
         progress.classList.add('bg-dark');
         progress.style.border = '1px solid #404040';
+    });
+
+    const progressFills = document.querySelectorAll('.progress-bar-fill, .progress-fill, .progress-completed, .progress-bar .bar, .progress .bar, .bar .bar');
+    progressFills.forEach(fill => {
+        fill.style.backgroundColor = '#4da6ff';
+        fill.style.borderColor = '#4da6ff';
+    });
+
+    const separators = document.querySelectorAll('hr, .divider, .separator, .border, .border-top, .border-bottom, .border-left, .border-right');
+    separators.forEach(separator => {
+        separator.style.borderColor = '#333333';
+        separator.style.backgroundColor = '#333333';
+    });
+
+    const bgWhiteElements = document.querySelectorAll('.bg-white, .bg-light, .bg-default, .bg-standard');
+    bgWhiteElements.forEach(element => {
+        element.style.backgroundColor = '#1e1e1e';
+        element.style.color = '#e0e0e0';
+    });
+
+    const completionElements = document.querySelectorAll('.completion-progress, .completion-indicator, .completion-status, .progress-completion, .completion-bar, .completion-track');
+    completionElements.forEach(element => {
+        element.style.backgroundColor = '#333333';
+        element.style.borderColor = '#404040';
+    });
+
+    const defaultTextElements = document.querySelectorAll('.text-default, .text-muted, .text-secondary');
+    defaultTextElements.forEach(element => {
+        element.style.color = '#e0e0e0';
+    });
+
+    const defaultBgElements = document.querySelectorAll('.bg-default, .bg-standard, .bg-normal');
+    defaultBgElements.forEach(element => {
+        element.style.backgroundColor = '#1e1e1e';
     });
 
     const tables = document.querySelectorAll('table, th, td');
@@ -278,6 +312,8 @@ function enableDarkMode() {
         element.style.color = '#e0e0e0';
         element.style.borderColor = '#333333';
     });
+
+    localStorage.setItem('darkMode', 'enabled');
 }
 
 function disableDarkMode() {
@@ -289,6 +325,26 @@ function disableDarkMode() {
         element.style.color = '';
         element.style.backgroundColor = '';
         element.style.borderColor = '';
+    }
+
+    localStorage.setItem('darkMode', 'disabled');
+}
+
+function restoreDarkModeState() {
+    const savedState = localStorage.getItem('darkMode');
+    if (savedState === 'enabled') {
+        isDarkMode = true;
+        enableDarkMode();
+        toggleButton.innerHTML = '☀️';
+        toggleButton.style.backgroundColor = '#333333';
+        toggleButton.style.border = '2px solid #ffffff';
+        toggleButton.style.boxShadow = '0 0 5px rgba(255,255,255,0.2)';
+    }
+}
+
+function handlePageNavigation() {
+    if (isDarkMode) {
+        enableDarkMode();
     }
 }
 
@@ -380,3 +436,121 @@ observer.observe(document.body, {
     childList: true,
     subtree: true
 });
+
+window.addEventListener('popstate', handlePageNavigation);
+window.addEventListener('pushstate', handlePageNavigation);
+window.addEventListener('replacestate', handlePageNavigation);
+
+let currentUrl = location.href;
+new MutationObserver(() => {
+    const url = location.href;
+    if (url !== currentUrl) {
+        currentUrl = url;
+        handlePageNavigation();
+    }
+}).observe(document, {subtree: true, childList: true});
+
+window.addEventListener('beforeunload', () => {
+    if (isDarkMode) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
+});
+
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && isDarkMode) {
+        enableDarkMode();
+    }
+});
+
+window.addEventListener('focus', () => {
+    if (isDarkMode) {
+        enableDarkMode();
+    }
+});
+
+restoreDarkModeState();
+
+document.addEventListener('DOMContentLoaded', () => {
+    restoreDarkModeState();
+});
+
+window.addEventListener('load', () => {
+    restoreDarkModeState();
+});
+
+setTimeout(() => {
+    restoreDarkModeState();
+}, 1);
+
+function ensureDarkModeProgress() {
+    if (!isDarkMode) return;
+    
+    const allProgressSelectors = [
+        '.progress', '.progress-bar', '.bar', '.bg-white',
+        '.progress-wrapper', '.progress-container', '.completion-progress',
+        '.progress-bar-container', '.progress-track', '.progress-line',
+        '.progress-indicator', '.completion-indicator', '.progress-separator',
+        '.progress-bar-wrapper', '.progress-box', '.progress-section',
+        '.progress-area', '.progress-block', '.progress-item',
+        '.progress-element', '.progress-component', '.progress-display',
+        '.progress-show', '.progress-view', '.progress-panel',
+        '.progress-card', '.progress-widget', '.progress-module',
+        '.progress-unit', '.progress-part', '.progress-portion',
+        '.progress-segment', '.progress-division', '.progress-fraction',
+        '.progress-ratio', '.progress-percentage'
+    ];
+    
+    const allProgressElements = document.querySelectorAll(allProgressSelectors.join(', '));
+    allProgressElements.forEach(element => {
+        element.style.backgroundColor = '#333333';
+        element.style.borderColor = '#404040';
+    });
+    
+    const keywordElements = document.querySelectorAll('[class*="progress"], [class*="completion"], [class*="bar"]');
+    keywordElements.forEach(element => {
+        element.style.backgroundColor = '#333333';
+        element.style.borderColor = '#404040';
+    });
+    
+    const whiteStyleElements = document.querySelectorAll('[style*="background-color: white"], [style*="background-color: #fff"], [style*="background-color: #ffffff"], [style*="background: white"], [style*="background: #fff"], [style*="background: #ffffff"]');
+    whiteStyleElements.forEach(element => {
+        element.style.backgroundColor = '#333333';
+    });
+    
+    const whiteClassElements = document.querySelectorAll('[class*="white"], [class*="light"], [class*="default"]');
+    whiteClassElements.forEach(element => {
+        element.style.backgroundColor = '#1e1e1e';
+        element.style.color = '#e0e0e0';
+    });
+    
+    const specificBgWhiteElements = document.querySelectorAll('.card-footer.bg-white, .dashboard-card-footer.bg-white, .progress.bg-white, .progress-bar.bg-white, .bar.bg-white, .container.bg-white, .card.bg-white, .panel.bg-white, .well.bg-white, .block.bg-white, .content-wrapper.bg-white, .main-content.bg-white, .content-area.bg-white, article.bg-white');
+    specificBgWhiteElements.forEach(element => {
+        element.style.backgroundColor = '#1e1e1e';
+        element.style.color = '#e0e0e0';
+    });
+    
+    const progressBgWhiteElements = document.querySelectorAll('.progress.bg-white, .progress-bar.bg-white, .bar.bg-white');
+    progressBgWhiteElements.forEach(element => {
+        element.style.backgroundColor = '#333333';
+        element.style.borderColor = '#404040';
+    });
+    
+    const dashboardCardFooterElements = document.querySelectorAll('.dashboard-card-footer.bg-white, .card-footer.bg-white, .card-footer.dashboard-card-footer.bg-white');
+    dashboardCardFooterElements.forEach(element => {
+        element.style.backgroundColor = '#1e1e1e';
+        element.style.color = '#e0e0e0';
+    });
+    
+    const allBgWhiteElements = document.querySelectorAll('.bg-white, .bg-light, .bg-default, .bg-standard');
+    allBgWhiteElements.forEach(element => {
+        element.style.backgroundColor = '#1e1e1e';
+        element.style.color = '#e0e0e0';
+    });
+}
+
+setInterval(ensureDarkModeProgress, 1000);
+
+setTimeout(ensureDarkModeProgress, 2000);
+setTimeout(ensureDarkModeProgress, 5000);
